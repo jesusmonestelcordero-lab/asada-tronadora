@@ -1337,3 +1337,408 @@ display: block;
         grid-template-columns: 1fr;
     }
 }
+
+/* PASOS PARA CONSULTAR RECIBOS */
+
+.pasos-recibo {
+    margin: 18px 0 25px;
+    padding-left: 25px;
+    line-height: 1.9;
+}
+
+.pasos-recibo li {
+    margin-bottom: 10px;
+}
+
+.pasos-recibo strong {
+    color: #087f8c;
+}
+
+/* INSTRUCCIONES DE RECIBOS EN INICIO */
+
+.instrucciones-inicio {
+    margin-top: 30px;
+    padding: 25px;
+    background: #effbf8;
+    border-left: 5px solid #007c83;
+    border-radius: 12px;
+    max-width: 750px;
+}
+
+.instrucciones-inicio h3 {
+    color: #163b3e;
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.instrucciones-inicio p {
+    margin-bottom: 12px;
+}
+
+.instrucciones-inicio ol {
+    padding-left: 22px;
+    line-height: 1.8;
+}
+
+.instrucciones-inicio li {
+    margin-bottom: 8px;
+}
+
+.instrucciones-inicio strong {
+    color: #007c83;
+}
+
+@media (max-width: 600px) {
+    .instrucciones-inicio {
+        padding: 18px;
+        margin-top: 25px;
+    }
+}
+
+
+/* ===================================
+   GALERÍA DE NORMATIVAS
+=================================== */
+
+.normativas-intro {
+    max-width: 850px;
+    margin: 0 auto 35px;
+    text-align: center;
+    line-height: 1.8;
+    color: #555;
+}
+
+.normativas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.normativa-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    padding: 12px;
+    border: 1px solid #e0e9ed;
+    border-radius: 15px;
+    background: #fff;
+    cursor: pointer;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+    transition: box-shadow 0.2s ease;
+    font: inherit;
+}
+
+.normativa-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 90, 150, 0.16);
+}
+
+.normativa-card:focus-visible {
+    outline: 3px solid #087fbd;
+    outline-offset: 3px;
+}
+
+.normativa-card img {
+    display: block;
+    width: 100%;
+    height: 360px;
+    object-fit: contain;
+    background: #f3f8fb;
+    border-radius: 10px;
+}
+
+.normativa-card span {
+    display: block;
+    padding: 15px 5px 5px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #075b8e;
+}
+
+/* VISOR DE IMÁGENES */
+
+.normativa-modal[hidden] {
+    display: none;
+}
+
+.normativa-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px 25px;
+    background: rgba(0, 0, 0, 0.92);
+}
+
+.normativa-modal img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.normativa-cerrar {
+    position: absolute;
+    top: 12px;
+    right: 22px;
+    z-index: 1;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 42px;
+    cursor: pointer;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+    .normativas-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+    .normativas-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .normativa-card img {
+        height: auto;
+        max-height: 520px;
+    }
+
+    .normativa-modal {
+        padding: 65px 10px 20px;
+    }
+}
+
+
+/* Mantener el menú ordenado */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.nav a {
+    white-space: nowrap;
+}
+
+
+/* Mensaje para ampliar las normativas */
+
+.mensaje-normativas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    max-width: 850px;
+    margin: 35px auto 0;
+    padding: 20px 25px;
+    background: #eaf8f6;
+    border: 1px solid #bce8e1;
+    border-left: 5px solid #007c83;
+    border-radius: 12px;
+    color: #173e42;
+    text-align: center;
+}
+
+.mensaje-normativas span {
+    font-size: 30px;
+}
+
+.mensaje-normativas p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .mensaje-normativas {
+        flex-direction: column;
+        padding: 18px;
+    }
+}
+
+
+/* GALERÍA DE NORMATIVAS MÁS COMPACTA */
+
+.normativas-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+    align-items: start;
+}
+
+.normativa-card {
+    padding: 8px;
+    border-radius: 12px;
+}
+
+.normativa-card img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.normativa-card span {
+    padding: 9px 4px;
+    font-size: 14px;
+}
+
+@media (max-width: 900px) {
+    .normativas-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .normativas-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
+
+
+/* DISEÑO FINAL DE NORMATIVAS */
+
+.normativas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    align-items: start;
+    margin-bottom: 25px;
+}
+
+.normativa-card {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.normativa-card img {
+    display: block;
+    width: 100%;
+    height: 280px;
+    max-height: none;
+    object-fit: contain;
+    background: #f3f8fb;
+    border-radius: 8px;
+}
+
+.normativa-card span {
+    padding: 10px 5px;
+    font-size: 15px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* TABLETS */
+@media (max-width: 900px) {
+    .normativas-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* CELULARES */
+@media (max-width: 600px) {
+    .normativas-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .normativa-card img {
+        height: auto;
+        max-height: 420px;
+    }
+}
+
+.normativas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    align-items: stretch;
+}
+
+@media (max-width: 900px) {
+    .normativas-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .normativas-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* GALERÍA DE NORMATIVAS CENTRADA */
+
+.normativas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 300px));
+    justify-content: center;
+    gap: 25px;
+    margin: 30px auto 50px;
+}
+
+/* TABLETS */
+@media (max-width: 900px) {
+    .normativas-grid {
+        grid-template-columns: repeat(2, minmax(0, 300px));
+    }
+}
+
+/* CELULARES */
+@media (max-width: 600px) {
+    .normativas-grid {
+        grid-template-columns: minmax(0, 350px);
+        padding: 0 15px;
+    }
+}
+
+
+/* Centrar las tarjetas de las galerías */
+.normativas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 25px;
+    width: 100%;
+}
+
+/* Categorías que contienen exactamente 3 tarjetas */
+.normativas-grid:has(> :nth-child(3):last-child) {
+    grid-template-columns: repeat(3, minmax(0, 300px));
+    justify-content: center;
+}
+
+@media (max-width: 1000px) {
+    .normativas-grid,
+    .normativas-grid:has(> :nth-child(3):last-child) {
+        grid-template-columns: repeat(2, minmax(0, 300px));
+        justify-content: center;
+    }
+}
+
+@media (max-width: 650px) {
+    .normativas-grid,
+    .normativas-grid:has(> :nth-child(3):last-child) {
+        grid-template-columns: minmax(0, 300px);
+    }
+}
