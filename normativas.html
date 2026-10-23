@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Normativas | ASADA Tronadora</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .normativas-categoria {
+      margin-top: 45px;
+      color: #163b3e;
+      font-size: 26px;
+    }
+
+    .normativas-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 25px;
+    }
+
+    .normativa-card {
+      background: white;
+      padding: 12px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    .normativa-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: contain;
+      border-radius: 8px;
+      cursor: zoom-in;
+    }
+
+    .normativa-card p {
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    .visor-normativa {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 45px 15px;
+    }
+
+    .visor-normativa.activo {
+      display: flex;
+    }
+
+    .visor-normativa img {
+      max-width: 95%;
+      max-height: 85vh;
+      object-fit: contain;
+    }
+
+    .cerrar-visor {
+      position: absolute;
+      top: 12px;
+      right: 25px;
+      font-size: 40px;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    @media (max-width: 950px) {
+      .normativas-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 550px) {
+      .normativas-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="img/ASADA.png" alt="ASADA Tronadora">
+      </a>
+
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="mision.html">Misión</a>
+        <a href="vision.html">Visión</a>
+        <a href="normativas.html">Normativas</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <p>ASADA TRONADORA</p>
+        <h1>Normativas y recomendaciones</h1>
+        <span>
+          Información importante sobre el uso responsable
+          del agua y los servicios de nuestra ASADA.
+        </span>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <p>INFORMACIÓN</p>
+          <h2>Normativas e información de ASADA Tronadora</h2>
+        </div>
+
+        <div id="galeria-normativas"></div>
+
+        <div class="mensaje-normativas">
+          <span>🔍</span>
+          <p>
+            <strong>¿Querés leer la información?</strong>
+            Tocá cualquier imagen para ampliarla.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© 2026 ASADA Tronadora</p>
+      <p>Tronadora, Tilarán, Guanacaste, Costa Rica</p>
+    </div>
+  </footer>
+
+  <div class="visor-normativa" id="visorNormativa">
+    <button class="cerrar-visor" id="cerrarVisor"
+            aria-label="Cerrar imagen">&times;</button>
+    <img id="imagenAmpliada" alt="Imagen ampliada">
+  </div>
+
+  <script src="js/script.js"></script>
+
+  <script>
+    // Cada imagen conserva su nombre original.
+    const categorias = [
+      {
+        nombre: "Normativas y reglamentos",
+        imagenes: [
+          ["normativa-5.jpeg", "Derechos y obligaciones del servicio"],
+          ["normativa -9.jpeg", "Manipulación exclusiva de la red"],
+          ["normativa-10.jpeg", "Acueductos, alcantarillado e hidrantes"],
+          ["normativa-11.jpeg", "Manipulación de la red y gestión comercial"],
+          ["normativa-12.jpeg", "Ubicación de conexiones de agua"],
+          ["normativa-13.jpeg", "Reglamento del servicio de agua"],
+          ["normativa -14.jpeg", "Conozcamos nuestras reglas"],
+          ["normativa-16.jpeg", "Prioridad del consumo humano"],
+          ["normativa-17.jpeg", "Fuentes públicas y salud pública"],
+          ["normativa-19.jpeg", "Causas de suspensión del servicio"],
+          ["normativa-20.jpeg", "Reglamento sobre fugas internas"],
+          ["normativa-21.jpeg", "Reglamento de prestación de servicios 2026"],
+          ["normativa-22.jpeg", "Normativa de ARESEP y reglamento de ASADAS"],
+          ["Normativa.jpeg", "Inspección y facturación por fugas internas"],
+          ["ñ.jpeg", "Requisitos y condiciones para arreglos de pago 2026"],
+["j.jpeg", "Traslado de medidor o solicitud de nuevo servicio"]
+        ]
+      },
+      {
+        nombre: "Información para abonados",
+        imagenes: [
+          ["normativa-4.jpeg", "Información sobre recibos y pagos"],
+          ["normativa-6.jpeg", "Tipos de usuarios de la ASADA"],
+          ["normativa-18.jpeg", "Arreglos de pago"],
+          ["n.jpeg", "Información de contacto de la ASADA"]
+        ]
+      },
+     
+      {
+        nombre: "Información educativa",
+        imagenes: [
+          ["normativa-1.jpeg", "Fuentes hídricas y tanques"],
+          ["normativa -7.jpeg", "El recorrido del agua potable"],
+          ["normativa-15.jpeg", "Instalación de fuentes públicas"]
+        ]
+      },
+      
+{
+    nombre: "Comunicados institucionales",
+    imagenes: [
+        ["normativa-2.jpeg", "Comunicado institucional"],
+        ["informacion-pagos.jpeg.jpeg", "Información sobre recibos y pagos"],
+        ["horarios-atencion.jpeg.jpeg", "Horarios de atención de la ASADA"]
+    ]
+}
+
+];
+
+
+    const galeria = document.getElementById("galeria-normativas");
+    galeria.style.display = "flex";
+galeria.style.flexDirection = "column";
+galeria.style.alignItems = "center";
+    const visor = document.getElementById("visorNormativa");
+    const ampliada = document.getElementById("imagenAmpliada");
+
+    categorias.forEach(categoria => {
+      const titulo = document.createElement("h3");
+      
+      titulo.className = "normativas-categoria";
+      titulo.textContent = categoria.nombre;
+      galeria.appendChild(titulo);
+
+      const grid = document.createElement("div");
+grid.className = "normativas-grid";
+
+
+      categoria.imagenes.forEach(([archivo, descripcion]) => {
+        const tarjeta = document.createElement("article");
+        tarjeta.className = "normativa-card";
+
+        const imagen = document.createElement("img");
+        imagen.src = "img/normativas/" + archivo;
+        imagen.alt = descripcion;
+        imagen.loading = "lazy";
+        imagen.tabIndex = 0;
+        imagen.setAttribute("role", "button");
+        imagen.setAttribute("aria-label", "Ampliar: " + descripcion);
+
+        const texto = document.createElement("p");
+        texto.textContent = descripcion;
+
+        function abrirImagen() {
+          ampliada.src = imagen.src;
+          ampliada.alt = descripcion;
+          visor.classList.add("activo");
+          document.body.style.overflow = "hidden";
+        }
+
+        imagen.addEventListener("click", abrirImagen);
+
+        imagen.addEventListener("keydown", evento => {
+          if (evento.key === "Enter" || evento.key === " ") {
+            evento.preventDefault();
+            abrirImagen();
+          }
+        });
+
+        tarjeta.appendChild(imagen);
+        tarjeta.appendChild(texto);
+        grid.appendChild(tarjeta);
+      });
+
+      galeria.appendChild(grid);
+    });
+
+    function cerrarVisor() {
+      visor.classList.remove("activo");
+      document.body.style.overflow = "";
+      ampliada.removeAttribute("src");
+    }
+
+    document.getElementById("cerrarVisor")
+      .addEventListener("click", cerrarVisor);
+
+    visor.addEventListener("click", evento => {
+      if (evento.target === visor) cerrarVisor();
+    });
+
+    document.addEventListener("keydown", evento => {
+      if (evento.key === "Escape") cerrarVisor();
+    });
+  </script>
+</body>
+</html>
