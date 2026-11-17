@@ -269,12 +269,15 @@
         del agua en nuestra comunidad.
     </p>
 
+
 </article>
 
 </div>
-
+</div>
+</section>
 
 <!-- CONSULTA DE RECIBOS -->
+
 <section class="section">
     <div class="container">
 
@@ -324,41 +327,169 @@
 </section>
 
 
-        <!-- COMPROMISO -->
 
-        <section class="section section-light">
+<!-- =====================================
+     REPORTE DE FUGAS POR WHATSAPP
+===================================== -->
 
-            <div class="container">
+<section class="section section-light" id="reportar-fuga">
+    <div class="container">
 
-                <div class="notice">
+        <div class="section-title">
+            <p>ATENCIÓN AL ABONADO</p>
+            <h2>Reportar una fuga de agua</h2>
+        </div>
 
-                    <div class="notice-icon">
-                        💙
-                    </div>
+        <p class="fugas-intro">
+            ¿Detectó una fuga de agua en la comunidad?
+            Complete el siguiente formulario para preparar
+            un reporte y enviarlo por WhatsApp a la ASADA Tronadora.
+        </p>
 
-                    <div>
+        <div class="fugas-contenedor">
 
-                        <h3>
-                            Nuestro compromiso
-                        </h3>
+            <div class="fugas-info">
+                <div class="fugas-icono">💧</div>
 
-                        <p>
-                            Trabajamos para brindar un servicio
-                            responsable y contribuir al bienestar
-                            de la comunidad de Tronadora.
-                        </p>
+                <h3>Ayúdenos a cuidar el agua</h3>
 
-                    </div>
+                <p>
+                    Su colaboración es importante para
+                    identificar posibles fugas y averías
+                    en el sistema de abastecimiento.
+                </p>
 
+                <div class="fugas-contacto">
+                    <strong>📞 Reportes y emergencias</strong>
+                    <p>8728-0715</p>
                 </div>
 
+                <p class="fugas-aviso">
+                    Para situaciones urgentes, comuníquese
+                    directamente por teléfono. El formulario
+                    no sustituye la atención de emergencias.
+                </p>
             </div>
 
-        </section>
+            <form id="formularioFugas" class="fugas-formulario">
 
+                <h3>Formulario de reporte</h3>
 
-    </main>
+                <div class="fugas-campo">
+                    <label for="fugaNombre">Nombre completo *</label>
+                    <input
+                        type="text"
+                        id="fugaNombre"
+                        name="nombre"
+                        maxlength="100"
+                        autocomplete="name"
+                        required
+                        placeholder="Escriba su nombre completo"
+                    >
+                </div>
 
+                <div class="fugas-campo">
+                    <label for="fugaTelefono">Número de teléfono *</label>
+                    <input
+                        type="tel"
+                        id="fugaTelefono"
+                        name="telefono"
+                        maxlength="20"
+                        required
+                        placeholder="Ejemplo: 8888-8888"
+                    >
+                </div>
+
+                <div class="fugas-campo">
+                    <label for="fugaBarrio">Barrio o sector *</label>
+                    <input
+                        type="text"
+                        id="fugaBarrio"
+                        name="barrio"
+                        maxlength="120"
+                        required
+                        placeholder="Indique el barrio o sector"
+                    >
+                </div>
+
+                <div class="fugas-campo">
+                    <label for="fugaUbicacion">Ubicación o señas *</label>
+                    <textarea
+                        id="fugaUbicacion"
+                        name="ubicacion"
+                        rows="3"
+                        maxlength="500"
+                        required
+                        placeholder="Indique dónde se encuentra la fuga"
+                    ></textarea>
+                </div>
+
+                <div class="fugas-campo">
+                    <label for="fugaDescripcion">Descripción de la fuga *</label>
+                    <textarea
+                        id="fugaDescripcion"
+                        name="descripcion"
+                        rows="4"
+                        maxlength="1000"
+                        required
+                        placeholder="Describa el problema observado"
+                    ></textarea>
+                </div>
+
+                <div class="fugas-campo">
+                    <label for="fugaUrgencia">Nivel de urgencia</label>
+                    <select id="fugaUrgencia" name="urgencia">
+                        <option value="No determinado">
+                            No estoy seguro
+                        </option>
+                        <option value="Bajo">
+                            Bajo: fuga pequeña
+                        </option>
+                        <option value="Medio">
+                            Medio: pérdida constante de agua
+                        </option>
+                        <option value="Alto">
+                            Alto: pérdida abundante de agua
+                        </option>
+                    </select>
+                </div>
+
+                <div class="fugas-campo">
+                    <label for="fugaMapa">
+                        Enlace de Google Maps (opcional)
+                    </label>
+                    <input
+                        type="url"
+                        id="fugaMapa"
+                        name="mapa"
+                        placeholder="https://maps.app.goo.gl/..."
+                    >
+                    <small>
+                        Puede compartir la ubicación desde
+                        Google Maps y pegar aquí el enlace.
+                    </small>
+                </div>
+
+                <button
+                    type="submit"
+                    class="fugas-boton"
+                >
+                    Enviar reporte por WhatsApp
+                </button>
+
+                <p class="fugas-nota">
+                    Se abrirá WhatsApp con el mensaje preparado.
+                    Revise la información y presione Enviar
+                    para completar el reporte.
+                    Puede adjuntar fotografías directamente
+                    en la conversación.
+                </p>
+
+            </form>
+        </div>
+
+    </div>
+</section>
 
     <!-- PIE DE PÁGINA -->
 
@@ -382,6 +513,44 @@
     <!-- JAVASCRIPT -->
 
     <script src="js/script.js"></script>
+
+
+
+<script>
+document.getElementById("formularioFugas")
+    .addEventListener("submit", function(evento) {
+
+    evento.preventDefault();
+
+    const nombre = document.getElementById("fugaNombre").value.trim();
+    const telefono = document.getElementById("fugaTelefono").value.trim();
+    const barrio = document.getElementById("fugaBarrio").value.trim();
+    const ubicacion = document.getElementById("fugaUbicacion").value.trim();
+    const descripcion = document.getElementById("fugaDescripcion").value.trim();
+    const urgencia = document.getElementById("fugaUrgencia").value;
+    const mapa = document.getElementById("fugaMapa").value.trim();
+
+    const mensaje =
+        "REPORTE DE FUGA - ASADA TRONADORA\n\n" +
+        "Nombre: " + nombre + "\n" +
+        "Teléfono: " + telefono + "\n" +
+        "Barrio o sector: " + barrio + "\n" +
+        "Ubicación: " + ubicacion + "\n" +
+        "Descripción: " + descripcion + "\n" +
+        "Urgencia indicada: " + urgencia + "\n" +
+        (mapa ? "Google Maps: " + mapa + "\n" : "") +
+        "\nEnviado desde el formulario de la página web.";
+
+    const numero = "50687280715";
+
+    const enlace =
+        "https://wa.me/" + numero +
+        "?text=" + encodeURIComponent(mensaje);
+
+    window.location.href = enlace;
+});
+</script>
+
 
 </body>
 
